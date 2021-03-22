@@ -16,5 +16,7 @@ RUN tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN rm phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN mkdir /run/nginx
 RUN mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+RUN rm /www/phpmyadmin/config.sample.inc.php
 COPY ./sources/supervisord.conf /etc/
+COPY ./sources/config.inc.php /www/phpmyadmin/
 CMD /usr/bin/supervisord -c /etc/supervisord.conf

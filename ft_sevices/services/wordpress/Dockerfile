@@ -16,4 +16,5 @@ RUN mkdir /run/nginx
 RUN tar -xzvf latest.tar.gz
 RUN rm latest.tar.gz
 COPY ./sources/supervisord.conf /etc/
+COPY ./sources/wp-config.php /www/wordpress/
 CMD /usr/bin/supervisord -c /etc/supervisord.conf
