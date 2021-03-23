@@ -6,6 +6,8 @@ docker build -t phpmyadmin:service ./phpmyAdmin/
 docker build -t wordpress:service ./wordpress/
 docker build -t mysql:service ./mysql/
 docker build -t ftps:service ./ftp/
+docker build -t grafana:service ./grafana/
+docker build -t influxdb:service ./inflexdb/
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/metallb.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
@@ -21,4 +23,9 @@ kubectl apply -f ./mysql/deployemet.yaml
 kubectl apply -f ./mysql/service.yaml
 kubectl apply -f ./ftp/deployemet.yaml
 kubectl apply -f ./ftp/service.yaml
+kubectl apply -f ./grafana/deployemet.yaml
+kubectl apply -f ./grafana/service.yaml
+kubectl apply -f ./inflexdb/pvc.yaml
+kubectl apply -f ./inflexdb/deployemet.yaml
+kubectl apply -f ./inflexdb/service.yaml
 minikube dashboard
