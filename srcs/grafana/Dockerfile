@@ -15,5 +15,6 @@ COPY ./sources/sample.yaml /grafana/conf/provisioning/datasources/
 COPY ./sources/stop-supervisor.sh /tmp/
 RUN chmod +x /tmp/stop-supervisor.sh
 WORKDIR /grafana
+COPY ./sources/grafana.db ./data/
 EXPOSE 3000
 CMD /usr/bin/supervisord -c /etc/supervisord.conf

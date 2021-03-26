@@ -28,7 +28,4 @@ kubectl apply -f ./srcs/grafana/service.yaml
 kubectl apply -f ./srcs/inflexdb/pvc.yaml
 kubectl apply -f ./srcs/inflexdb/deployemet.yaml
 kubectl apply -f ./srcs/inflexdb/service.yaml
-minikube stop
-minikube start
 minikube dashboard
-# kubectl cp grafana-844ccdfc9f-9hjfk:/grafana/data/grafana.db ~/Desktop/grafana.db
